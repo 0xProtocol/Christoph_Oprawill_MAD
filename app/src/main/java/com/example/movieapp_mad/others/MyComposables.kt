@@ -189,7 +189,6 @@ fun MovieList(navController: NavController = rememberNavController(), movies: Li
     }
 }
 
-//
 @Composable
 fun ToggleIcon(icon: ImageVector,
                toggleIcon: ImageVector,

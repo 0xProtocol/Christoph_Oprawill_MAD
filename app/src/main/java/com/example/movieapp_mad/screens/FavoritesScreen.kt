@@ -16,7 +16,7 @@ import com.example.movieapp_mad.others.SimpleAppBar
 
 @Composable
 fun FavoritesScreen(navController: NavController){
-    val favoriteMovies: List<Movie> = listOf(getMovies()[0],getMovies()[2],getMovies()[5],getMovies()[6])
+    val favoriteMovies: List<Movie> = listOf(getMovies()[0],getMovies()[1],getMovies()[2])
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background

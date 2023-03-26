@@ -14,15 +14,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MovieApp_MADTheme {
                 Navigation()
-                /*Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Column {
-                        TopBar()
-                        MovieList(movieList = getMovies())
-                    }
-                }*/
             }
         }
     }
@@ -32,8 +23,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MovieApp_MADTheme {
-        //TopBar()
-        //MovieList(movieList = getMovies())
+
         Navigation()
     }
 }

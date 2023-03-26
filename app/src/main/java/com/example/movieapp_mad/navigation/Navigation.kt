@@ -35,25 +35,3 @@ fun Navigation (){
         }
     }
 }
-/*
-@Composable
-fun HomeScreenContent(navController: NavController) {
-    val navigateToDetailScreen: (String) -> Unit = { movieId ->
-        navController.navigate(Screen.Detail.withArgs("movieId" to movieId))
-    }
-    HomeScreen(navigateToDetailScreen)
-}
-
-@Composable
-fun DetailScreenContent(navController: NavController) {
-    composable(Screen.Detail.route + "/{movieId}") { backStackEntry ->
-        val movieId = backStackEntry.arguments?.getString("movieId") ?: ""
-        DetailScreen(navController, movieId)
-    }
-}
-
-//
-@Composable
-fun FavoritesScreenContent(navController: NavController) {
-    FavoritesScreen(navController)
-}*/
