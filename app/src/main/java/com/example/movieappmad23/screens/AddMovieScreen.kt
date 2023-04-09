@@ -59,14 +59,14 @@ fun MainContent(modifier: Modifier = Modifier, viewModel: ViewModel) {
                 text = viewModel.title,
                 errorState = viewModel.errorTitle,
                 label = R.string.enter_movie_title,
-                validateMethod = {viewModel.validateTitle()}
+                validateMethod = {viewModel.validate("title")}
             )
 
             TextInputField(
                 text = viewModel.year,
                 errorState = viewModel.errorYear,
                 label = R.string.enter_movie_year,
-                validateMethod = {viewModel.validateYear()}
+                validateMethod = {viewModel.validate("year")}
             )
 
             Text(
@@ -97,7 +97,7 @@ fun MainContent(modifier: Modifier = Modifier, viewModel: ViewModel) {
                                     it
                                 }
                             }
-                            viewModel.validateGenres()
+                            viewModel.validate("genres")
                         }
                     ) {
                         Text(text = genreItem.title)
@@ -109,28 +109,28 @@ fun MainContent(modifier: Modifier = Modifier, viewModel: ViewModel) {
                 text = viewModel.director,
                 errorState = viewModel.errorDirector,
                 label = R.string.enter_director,
-                validateMethod = {viewModel.validateDirector()}
+                validateMethod = {viewModel.validate("director")}
             )
 
             TextInputField(
                 text = viewModel.actors,
                 errorState = viewModel.errorActors,
                 label = R.string.enter_actors,
-                validateMethod = {viewModel.validateActors()}
+                validateMethod = {viewModel.validate("actors")}
             )
 
             TextInputField(
                 text = viewModel.plot,
                 errorState = viewModel.errorPlot,
                 label = R.string.enter_plot,
-                validateMethod = {viewModel.validatePlot()}
+                validateMethod = {viewModel.validate("plot")}
             )
 
             TextInputField(
                 viewModel.rating,
                 viewModel.errorRating,
                 R.string.enter_rating,
-                validateMethod = {viewModel.validateRating()}
+                validateMethod = {viewModel.validate("rating")}
             )
 
             /*

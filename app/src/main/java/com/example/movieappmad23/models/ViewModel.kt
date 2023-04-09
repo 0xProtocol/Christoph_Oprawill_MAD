@@ -46,13 +46,14 @@ class ViewModel : ViewModel() {
     var genreError: MutableState<Boolean> = mutableStateOf(false)
 
     fun init() {
-        validateTitle()
-        validateYear()
-        validateDirector()
-        validateActors()
-        validatePlot()
-        validateRating()
-        validateGenres()
+        validate("title")
+        validate("year")
+        validate("director")
+        validate("actors")
+        validate("plot")
+        validate("rating")
+        validate("genres")
+
     }
 
     fun addMovie(
@@ -90,48 +91,32 @@ class ViewModel : ViewModel() {
             }
         }
     }
-    fun validateTitle() {
-        errorTitle.value = title.value.isEmpty()
-        Enable()
-    }
-
-    fun validateYear() {
-        errorYear.value = year.value.isEmpty()
-        Enable()
-    }
-
-    fun validateDirector() {
-        errorDirector.value = director.value.isEmpty()
-        Enable()
-    }
-
-    fun validateActors() {
-        errorActors.value = actors.value.isEmpty()
-        Enable()
-    }
-
-    fun validatePlot() {
-        errorPlot.value = plot.value.isEmpty()
-        Enable()
-    }
-
-    fun validateRating() {
-        try {
-            rating.value.toFloat()
-            errorRating.value = false
-        } catch (e: java.lang.Exception) {
-            errorRating.value = true
-        } finally {
-            Enable()
-        }
-    }
-
-    fun validateGenres() {
-        genreError.value = true
-        genreItems.value.forEach genres@{
-            if (it.isSelected) {
-                genreError.value = false
-                return@genres
+    fun validate(field: String) {
+        when (field) {
+            "title" -> errorTitle.value = title.value.isEmpty()
+            "year" -> errorYear.value = year.value.isEmpty()
+            "director" -> errorDirector.value = director.value.isEmpty()
+            "actors" -> errorActors.value = actors.value.isEmpty()
+            "plot" -> errorPlot.value = plot.value.isEmpty()
+            "rating" -> {
+                try {
+                    rating.value.toFloat()
+                    errorRating.value = false
+                } catch (e: java.lang.Exception) {
+                    errorRating.value = true
+                } finally {
+                    Enable()
+                }
+            }
+            "genres" -> {
+                genreError.value = true
+                genreItems.value.forEach genres@{
+                    if (it.isSelected) {
+                        genreError.value = false
+                        return@genres
+                    }
+                }
+                Enable()
             }
         }
         Enable()
